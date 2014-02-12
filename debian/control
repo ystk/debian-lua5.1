@@ -3,8 +3,8 @@ Section: interpreters
 Priority: optional
 Maintainer: John V. Belmonte <jbelmonte@debian.org>
 Uploaders: Enrico Tassi <gareuselesinge@debian.org>
-Build-Depends: cdbs (>= 0.4.23-1.1), debhelper (>= 5), dpatch, libtool, libreadline-dev
-Standards-Version: 3.8.3
+Build-Depends: debhelper (>= 9), quilt (>= 0.40), libtool, libreadline-dev
+Standards-Version: 3.9.3
 Vcs-Svn: svn://svn.debian.org/pkg-lua/packages/lua5.1
 Vcs-Browser: http://svn.debian.org/viewsvn/pkg-lua/packages/lua5.1
 Homepage: http://www.lua.org
@@ -13,7 +13,7 @@ Package: lua5.1-doc
 Architecture: all
 Section: doc
 Depends: ${misc:Depends}
-Description: Simple, extensible, embeddable programming language
+Description: Documentation for the Lua language version 5.1
  Lua is a powerful, light-weight programming language designed for extending
  applications.  The language engine is accessible as a library, having a C
  API which allows the application to exchange data with Lua programs and also
@@ -25,6 +25,8 @@ Description: Simple, extensible, embeddable programming language
 
 Package: lua5.1
 Architecture: any
+Multi-Arch: foreign
+Provides: lua
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Simple, extensible, embeddable programming language
  Lua is a powerful, light-weight programming language designed for extending
@@ -40,10 +42,11 @@ Package: liblua5.1-0-dev
 Provides: liblua5.1-dev
 Conflicts: liblua5.1-dev
 Architecture: any
+Multi-Arch: same
 Depends: liblua5.1-0 (= ${binary:Version}), libc6-dev|libc-dev, libreadline-dev, ${misc:Depends}
 Recommends: pkg-config, libtool
 Section: libdevel
-Description: Simple, extensible, embeddable programming language
+Description: Development files for the Lua language version 5.1
  Lua is a powerful, light-weight programming language designed for extending
  applications.  The language engine is accessible as a library, having a C
  API which allows the application to exchange data with Lua programs and also
@@ -51,13 +54,16 @@ Description: Simple, extensible, embeddable programming language
  stand-alone language through the simple command line interpreter provided.
  .
  This package contains developer resources for using the Lua library.
- Install it if you are developing programs which use the Lua C API.
+ Install it if you are developing programs which use the Lua C API, both
+ in C or C++.
 
 Package: liblua5.1-0
 Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Section: libs
-Description: Simple, extensible, embeddable programming language
+Description: Shared library for the Lua interpreter version 5.1
  Lua is a powerful, light-weight programming language designed for extending
  applications.  The language engine is accessible as a library, having a C
  API which allows the application to exchange data with Lua programs and also
@@ -69,8 +75,10 @@ Description: Simple, extensible, embeddable programming language
 
 Package: liblua5.1-0-dbg
 Architecture: any
+Multi-Arch: same
 Depends: ${shlibs:Depends}, liblua5.1-0 (= ${binary:Version}), ${misc:Depends}
 Section: debug
 Priority: extra
-Description: Simple, extensible, embeddable programming language
+Description: Debug symbols for the Lua shared library interpreter
  This package contains the debugging symbols for liblua5.1 and lua5.1
+

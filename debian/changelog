@@ -1,3 +1,89 @@
+lua5.1 (5.1.5-4) unstable; urgency=low
+
+  * Rename lua-deb-multiarch.h into lua5.1-deb-multiarch.h and install it in
+    /usr/include/$DEB_HOST_MULTIARCH/ to make it available with no extra
+    -I directive (Closes: #682234, #682183, #682299)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Wed, 18 Jul 2012 18:43:50 +0200
+
+lua5.1 (5.1.5-3) unstable; urgency=low
+
+  * Install architecture dependent .h file in /usr/lib and fix .pc files
+    accordingly to fix multiarch issues (Closes: #676695)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Mon, 16 Jul 2012 12:48:01 +0200
+
+lua5.1 (5.1.5-2) unstable; urgency=low
+
+  * Put in the pkg-config .pc file -DDEB_HOST_MULTIARCH so that including
+    lua.h (and consequently luaconf.h) works fine even if one is not using
+    debhelpers (Closes: #671286, LP: #977813)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Thu, 03 May 2012 14:34:16 +0200
+
+lua5.1 (5.1.5-1) unstable; urgency=low
+
+  * New upstream release (Closes: #647518)
+  * Bump Standards-Version to 3.9.3 (no changes) 
+  * Fix paths of debug symbols setting debian/compat to 9 (Closes: #650104)
+  * Build-depend on debhelper >= 9
+  * Update debian/copyright yeas to 2012 
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Mon, 02 Apr 2012 17:47:48 +0200
+
+lua5.1 (5.1.4-12) unstable; urgency=low
+
+  * Provide liblua5.1-c++.so and lua5.1-c++.pc to make it possible to C++
+    programs to link against Lua and use the C++ exception mecanism.
+    (Closes: #560139)
+  * Add lua patch 5.1.4-4 fixing all known bugs of lua 5.1.4 
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Sun, 25 Dec 2011 20:15:03 +0100
+
+lua5.1 (5.1.4-11) unstable; urgency=low
+
+  * Provides: lua, as lua50 does 
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Wed, 07 Dec 2011 21:27:02 +0100
+
+lua5.1 (5.1.4-10) unstable; urgency=low
+
+  * Use -lpthread on lua5.1 only on hurd.
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Mon, 25 Jul 2011 10:15:30 +0200
+
+lua5.1 (5.1.4-9) unstable; urgency=low
+
+  * Use -lpthread on hurd also for lua5.1, and not only liblua5.1
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Mon, 25 Jul 2011 00:24:09 +0200
+
+lua5.1 (5.1.4-8) unstable; urgency=low
+
+  * cosmetic change to rules 
+  * LDFLAGS=-lpthread on hurd, to allow to dlopen libs linked with pthreads 
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Sun, 24 Jul 2011 21:59:46 +0200
+
+lua5.1 (5.1.4-7) unstable; urgency=low
+
+  * Fixed dh_installdocs target for dpkg-buildpackage -B
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Wed, 20 Jul 2011 12:42:45 +0200
+
+lua5.1 (5.1.4-6) unstable; urgency=low
+
+  * Switch to source-format 3.0 (quilt) 
+  * Switch from CDBS to dh, thanks for all the fish CDBS!
+  * Muti-Arch compatibility
+  * Removed .la file and updated examples accordingly
+  * Fixed flags in .pc file (Closes: #497942)
+  * Added upstream patch-lua-5.1.4-3 (Closes: #586552)
+  * Better short descriptions (Closes: #597081)
+  * Update Standards-Version to 3.9.2 (no changes)
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Tue, 19 Jul 2011 16:06:11 +0200
+
 lua5.1 (5.1.4-5) unstable; urgency=low
 
   * Fixed #include directives and calls to luaopen_* in the examples. 
