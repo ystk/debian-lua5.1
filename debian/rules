@@ -43,7 +43,7 @@ override_dh_auto_install:
 
 override_dh_auto_clean:
 	rm -f src/$(LUA_MULTIARCH)
-	$(MAKE) debian_clean
+	-$(MAKE) debian_clean
 
 override_dh_auto_test:
 	$(MAKE) debian_test

@@ -27,4 +27,4 @@ Build and run the dynamic test with:
 
 or the static test with:
 
-    $ make test-dynamic
+    $ make test-static

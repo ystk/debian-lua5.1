@@ -5,9 +5,9 @@ Maintainer: John V. Belmonte <jbelmonte@debian.org>
 Uploaders: Enrico Tassi <gareuselesinge@debian.org>
 Build-Depends: debhelper (>= 9), quilt (>= 0.40), libtool, libreadline-dev
 Standards-Version: 3.9.3
-Vcs-Svn: svn://svn.debian.org/pkg-lua/packages/lua5.1
-Vcs-Browser: http://svn.debian.org/viewsvn/pkg-lua/packages/lua5.1
 Homepage: http://www.lua.org
+Vcs-Git: git://git.debian.org/git/pkg-lua/lua5.1.git
+Vcs-Browser: http://git.debian.org/?p=pkg-lua/lua5.1.git
 
 Package: lua5.1-doc
 Architecture: all

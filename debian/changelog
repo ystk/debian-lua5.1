@@ -1,3 +1,10 @@
+lua5.1 (5.1.5-5) unstable; urgency=low
+
+  * Packaging moved to git
+  * Fix typo in doc (Closes: #676696, thanks Andrey Gursky) 
+
+ -- Enrico Tassi <gareuselesinge@debian.org>  Mon, 23 Jul 2012 11:47:20 +0200
+
 lua5.1 (5.1.5-4) unstable; urgency=low
 
   * Rename lua-deb-multiarch.h into lua5.1-deb-multiarch.h and install it in
