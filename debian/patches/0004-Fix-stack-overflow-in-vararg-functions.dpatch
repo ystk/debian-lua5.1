@@ -1,0 +1,26 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## edited for squeeze-lts by Holger Levsen <holger@debian.org>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: 
+## DP: From: Enrico Tassi <gareuselesinge@debian.org>
+## DP: Date: Tue, 26 Aug 2014 16:20:55 +0200
+## DP: Subject: Fix stack overflow in vararg functions
+## DP: 
+## DP: ---
+## DP:  src/ldo.c | 2 +-
+## DP:  1 file changed, 1 insertion(+), 1 deletion(-)
+
+@DPATCH@
+diff -urNad '--exclude=CVS' '--exclude=.svn' '--exclude=.git' '--exclude=.arch' '--exclude=.hg' '--exclude=_darcs' '--exclude=.bzr' lua5.1~/src/ldo.c lua5.1/src/ldo.c
+--- lua5.1~/src/ldo.c
++++ lua5.1/src/ldo.c
+@@ -274,7 +274,7 @@ int luaD_precall (lua_State *L, StkId func, int nresults) {
+     CallInfo *ci;
+     StkId st, base;
+     Proto *p = cl->p;
+-    luaD_checkstack(L, p->maxstacksize);
++    luaD_checkstack(L, p->maxstacksize + p->numparams);
+     func = restorestack(L, funcr);
+     if (!p->is_vararg) {  /* no varargs? */
+       base = func + 1;
